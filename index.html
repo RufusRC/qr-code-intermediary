@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inserir Número</title>
+    <script>
+        function redirectToUrl() {
+            const numero = document.getElementById("numero").value;
+            const baseUrl = "http://10.154.77.155/imagens_CE_pro_TdC/";
+            window.location.href = baseUrl + numero + "/";
+        }
+    </script>
+</head>
+<body>
+    <h1>Por favor, insira o número</h1>
+    <input type="text" id="numero" placeholder="Insira o número">
+    <button onclick="redirectToUrl()">Ir</button>
+</body>
+</html>
