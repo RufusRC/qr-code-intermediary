@@ -2,7 +2,63 @@
 <html>
 <head>
     <title>Inserir Número</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .keypad button {
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .keypad button:hover {
+            background: #0056b3;
+        }
+    </style>
     <script>
+        function insertNumber(num) {
+            document.getElementById('numero').value += num;
+        }
+
+        function clearInput() {
+            document.getElementById('numero').value = '';
+        }
+
         function redirectToUrl() {
             const numero = document.getElementById("numero").value;
             const baseUrl = "http://10.154.77.155/imagens_CE_pro_TdC/";
@@ -11,8 +67,23 @@
     </script>
 </head>
 <body>
-    <h1>Por favor, insira o número</h1>
-    <input type="text" id="numero" placeholder="Insira o número">
-    <button onclick="redirectToUrl()">Ir</button>
+    <div class="container">
+        <h1>Por favor, insira o TDC</h1>
+        <input type="text" id="numero" placeholder="Insira o número" readonly>
+        <div class="keypad">
+            <button onclick="insertNumber(1)">1</button>
+            <button onclick="insertNumber(2)">2</button>
+            <button onclick="insertNumber(3)">3</button>
+            <button onclick="insertNumber(4)">4</button>
+            <button onclick="insertNumber(5)">5</button>
+            <button onclick="insertNumber(6)">6</button>
+            <button onclick="insertNumber(7)">7</button>
+            <button onclick="insertNumber(8)">8</button>
+            <button onclick="insertNumber(9)">9</button>
+            <button onclick="clearInput()">C</button>
+            <button onclick="insertNumber(0)">0</button>
+            <button onclick="redirectToUrl()">Ir</button>
+        </div>
+    </div>
 </body>
 </html>
